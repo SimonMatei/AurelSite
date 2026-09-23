@@ -1,55 +1,11 @@
-const menuButton = document.querySelector('.menu-button');
-const mobileNav = document.querySelector('.mobile-nav');
+const menuButton=document.querySelector('.menu-button');const mobileNav=document.querySelector('.mobile-nav');menuButton.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuButton.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));mobileNav.setAttribute('aria-hidden',String(!open));document.body.style.overflow=open?'hidden':''});document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{mobileNav.classList.remove('open');menuButton.classList.remove('open');menuButton.setAttribute('aria-expanded','false');mobileNav.setAttribute('aria-hidden','true');document.body.style.overflow=''}));
 
-menuButton.addEventListener('click', () => {
-  const isOpen = mobileNav.classList.toggle('open');
-  menuButton.classList.toggle('open', isOpen);
-  menuButton.setAttribute('aria-expanded', String(isOpen));
-  mobileNav.setAttribute('aria-hidden', String(!isOpen));
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
+document.querySelectorAll('.service-toggle').forEach(toggle=>{toggle.addEventListener('click',()=>{const item=toggle.closest('.service-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.service-item').forEach(other=>other.classList.remove('open'));if(!wasOpen)item.classList.add('open')})});
+const servicePhoto=document.getElementById('service-photo');document.querySelectorAll('.service-detail').forEach(detail=>{detail.addEventListener('click',()=>{document.querySelectorAll('.service-detail').forEach(item=>item.classList.remove('active'));detail.classList.add('active');servicePhoto.style.opacity='0';servicePhoto.style.transform='scale(1.04)';setTimeout(()=>{servicePhoto.src=detail.dataset.image;servicePhoto.style.opacity='1';servicePhoto.style.transform='scale(1)'},200)})});
 
-document.querySelectorAll('.mobile-nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileNav.classList.remove('open');
-    menuButton.classList.remove('open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  });
-});
+document.querySelectorAll('.portfolio-toggle').forEach(toggle=>{toggle.addEventListener('click',()=>{const portfolio=toggle.closest('.portfolio');const wasOpen=portfolio.classList.contains('open');document.querySelectorAll('.portfolio').forEach(item=>item.classList.remove('open'));if(!wasOpen)portfolio.classList.add('open')})});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));document.getElementById('year').textContent=new Date().getFullYear();
 
-const services = document.querySelectorAll('.service');
-const servicePhoto = document.getElementById('service-photo');
-services.forEach(service => {
-  service.addEventListener('click', () => {
-    services.forEach(item => item.classList.remove('active'));
-    service.classList.add('active');
-    servicePhoto.style.opacity = '0';
-    servicePhoto.style.transform = 'scale(1.04)';
-    window.setTimeout(() => {
-      servicePhoto.src = service.dataset.image;
-      servicePhoto.style.opacity = '1';
-      servicePhoto.style.transform = 'scale(1)';
-    }, 200);
-  });
-});
+document.querySelector('.copy-email').addEventListener('click',async event=>{const email=event.currentTarget.dataset.email;try{await navigator.clipboard.writeText(email)}catch{const field=document.createElement('textarea');field.value=email;document.body.appendChild(field);field.select();document.execCommand('copy');field.remove()}document.querySelector('.copy-message').textContent='Email copiabile negli appunti.';setTimeout(()=>document.querySelector('.copy-message').textContent='',2500)});
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-document.getElementById('contact-form').addEventListener('submit', event => {
-  event.preventDefault();
-  document.getElementById('form-message').textContent = 'Grazie! Il modulo è pronto graficamente: collegalo a Formspree, email o WhatsApp per ricevere le richieste.';
-  event.currentTarget.reset();
-});
+document.getElementById('contact-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('form-message').textContent='Grazie! Il modulo è pronto per essere collegato a email, Formspree o WhatsApp.';event.currentTarget.reset()});
