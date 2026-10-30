@@ -6,7 +6,13 @@ const servicePhoto=document.getElementById('service-photo');document.querySelect
 document.querySelectorAll('.portfolio-toggle').forEach(toggle=>{toggle.addEventListener('click',()=>{const portfolio=toggle.closest('.portfolio');const wasOpen=portfolio.classList.contains('open');document.querySelectorAll('.portfolio').forEach(item=>item.classList.remove('open'));if(!wasOpen)portfolio.classList.add('open')})});
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));document.getElementById('year').textContent=new Date().getFullYear();
 
-document.querySelector('.copy-email').addEventListener('click',async event=>{const email=event.currentTarget.dataset.email;try{await navigator.clipboard.writeText(email)}catch{const field=document.createElement('textarea');field.value=email;document.body.appendChild(field);field.select();document.execCommand('copy');field.remove()}document.querySelector('.copy-message').textContent='Email copiabile negli appunti.';setTimeout(()=>document.querySelector('.copy-message').textContent='',2500)});
+document.querySelectorAll('.copy-btn').forEach(btn=>btn.addEventListener('click',async()=>{
+  const text=btn.dataset.copy;
+  try{await navigator.clipboard.writeText(text)}catch{const field=document.createElement('textarea');field.value=text;document.body.appendChild(field);field.select();document.execCommand('copy');field.remove()}
+  const msg=btn.closest('.contact-option').querySelector('.copy-message');
+  msg.textContent=btn.dataset.done;btn.textContent='COPIATO ✓';
+  setTimeout(()=>{msg.textContent='';btn.textContent='COPIA'},2500);
+}));
 
 const contactForm=document.getElementById('contact-form');
 const formMessage=document.getElementById('form-message');

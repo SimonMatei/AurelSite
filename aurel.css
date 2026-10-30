@@ -86,3 +86,26 @@ body.menu-open .quick-bar{transform:translateY(110%)}
 .intro-images figure:hover img,.portfolio-track figure:hover img{transform:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* Contatti: valore cliccabile + azioni */
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.contact-value{color:var(--cream);text-decoration:none;font-size:clamp(1.05rem,2vw,1.75rem);letter-spacing:-.05em;min-height:44px;display:inline-flex;align-items:center;min-width:0;overflow-wrap:anywhere}
+.contact-value:hover{color:var(--yellow)}
+.contact-btns{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 .95rem;border:1px solid #f3ec3666;border-radius:2rem;background:transparent;color:var(--yellow);font:700 .6rem var(--mono);letter-spacing:.08em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}
+.chip:hover{background:var(--yellow);color:var(--dark)}
+.whatsapp-option .chip{border-color:#72dc8866;color:#72dc88}
+.whatsapp-option .chip:hover{background:#72dc88;color:var(--dark)}
+.copy-message{margin:.4rem 0 0;font-size:.75rem;color:var(--yellow);min-height:1em}
+@media(hover:none),(pointer:coarse){.chip-gmail{display:none}}
+/* Il cerchio giallo resta dietro: testi e modulo sempre leggibili */
+.contact-layout{position:relative;z-index:1}
+@media(min-width:761px){
+.contact-layout form{background:#13294d;padding:2.4rem;border:1px solid var(--line);border-radius:6px}
+}
+@media(max-width:760px){
+.contact-value{font-size:1.15rem;min-height:48px}
+.chip{min-height:44px;font-size:.7rem;padding:0 1.1rem}
+.mobile-nav .mobile-quote{display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;padding:1.15rem 1.7rem;border:0;border-radius:3rem;background:var(--dark);color:var(--yellow);font:700 1.05rem var(--mono);letter-spacing:.08em;box-shadow:0 10px 30px #0b1a3340}
+.mobile-nav .mobile-quote small{color:var(--yellow);font-size:.7rem;vertical-align:baseline}
+}
