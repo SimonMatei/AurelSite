@@ -171,3 +171,11 @@ footer a{display:inline-block;padding:.4rem 0}
 
 /* Icona menu (due linee) gialla come i pulsanti; resta scura a menu aperto */
 @media(max-width:760px){.menu-button i{background:var(--yellow)}}
+/* Icona menu più visibile: linee spesse e arrotondate */
+@media(max-width:760px){
+.menu-button{gap:7px}
+.menu-button i{width:30px;height:3px;border-radius:3px;box-shadow:0 1px 4px #0b1a3366}
+.menu-button.open i:first-child{transform:translateY(5px) rotate(45deg)}
+.menu-button.open i:last-child{transform:translateY(-5px) rotate(-45deg)}
+body.menu-open .menu-button i{box-shadow:none}
+}
