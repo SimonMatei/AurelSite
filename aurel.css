@@ -15,3 +15,74 @@ form button:disabled{opacity:.6;cursor:wait;transform:none}
 .legal .updated{font:500 .65rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
 .back-link{font:700 .62rem var(--mono);letter-spacing:.08em;color:var(--cream);text-decoration:none}
 @media(max-width:760px){.contact{padding-bottom:calc(5rem + 32vw)}.contact-bg{width:68vw;height:68vw;right:-20vw;bottom:-40vw}}
+
+/* ===== Telefono ===== */
+.quick-bar{display:none}
+@media(max-width:760px){
+/* Header fisso: il menu è sempre raggiungibile */
+.header{position:fixed;z-index:14;height:calc(64px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) max(1.25rem,env(safe-area-inset-right,0px)) 0 max(1.25rem,env(safe-area-inset-left,0px));transition:background .3s,box-shadow .3s}
+.header.scrolled{background:#0b1a33f2;box-shadow:0 1px 0 var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.logo{padding:.8rem 0}
+.menu-button{width:48px;height:48px;align-items:center;justify-content:center;margin-right:-10px}
+/* Menu a tutto schermo */
+.mobile-nav{display:flex;flex-direction:column;gap:.35rem;padding:calc(6.5rem + env(safe-area-inset-top,0px)) 1.25rem 2rem;overflow-y:auto;visibility:hidden;transition:transform .45s cubic-bezier(.7,0,.2,1),visibility 0s .45s}
+.mobile-nav.open{visibility:visible;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.mobile-nav a{color:var(--dark);text-decoration:none;padding:.2rem 0}
+.mobile-nav small{font-size:.7rem}
+.mobile-nav .mobile-quote{font-size:.85rem;padding:1rem 1.3rem}
+body.menu-open .header{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.menu-open .logo{color:var(--dark)}
+body.menu-open .menu-button i{background:var(--dark)}
+/* Apertura */
+.hero{height:auto;min-height:100vh;min-height:100svh;padding:calc(88px + env(safe-area-inset-top,0px)) 1.25rem 2rem}
+.hero-meta{font-size:.66rem}
+.kicker{font-size:.72rem}
+.hero-bottom{flex-direction:column;align-items:flex-start;gap:1.8rem;margin-top:2.2rem}
+.hero-bottom>p{max-width:34ch;font-size:.98rem;line-height:1.6}
+.circle-link{width:104px;height:104px;font-size:.6rem;align-self:flex-end;margin-top:-.5rem}
+[id]{scroll-margin-top:calc(64px + env(safe-area-inset-top,0px))}
+.hero-scroll{display:none}
+/* Testi leggibili */
+.section-label{font-size:.72rem}
+.intro-copy p,.services-title>p{font-size:1rem}
+.intro-images figcaption,.portfolio-track figcaption{font-size:.68rem}
+.underlined-link{display:inline-flex;padding:.7rem 0;font-size:.95rem}
+/* Servizi: foto sopra l'elenco, così si vede quando cambia */
+.services-grid{display:flex;flex-direction:column}
+.service-photo{order:-1;height:auto;aspect-ratio:4/3;max-width:100%;margin:0 0 1.5rem}
+.service-detail{padding:.85rem 0;font-size:.95rem}
+.service-detail span,.service-detail small{font-size:.7rem}
+.service-detail b{font-size:.95rem}
+/* Lavori */
+.projects-heading p{font-size:.95rem;margin-bottom:2rem}
+.portfolio-track figure{flex-basis:82vw;height:300px}
+/* Contatti */
+.option-label{font-size:.7rem}
+.contact-option{margin-top:1.4rem}
+.copy-email,.contact-action{min-height:48px;font-size:1.15rem}
+.copy-email small,.contact-action small{font-size:.68rem}
+label{font-size:.7rem}
+input,textarea{font-size:16px;padding:.9rem 0}
+.consent{font-size:.9rem;padding:.3rem 0}
+.consent input{width:1.4rem;height:1.4rem;margin-top:.05rem}
+form button{font-size:.75rem;padding:1.15rem 1.5rem;min-height:52px}
+/* Footer */
+footer{font-size:.82rem;padding-bottom:calc(5.5rem + env(safe-area-inset-bottom,0px))}
+footer small{font-size:.75rem}
+footer a{display:inline-block;padding:.35rem 0}
+/* Barra Chiama / WhatsApp */
+.quick-bar{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:fixed;z-index:11;left:0;right:0;bottom:0;padding:.7rem max(1rem,env(safe-area-inset-right,0px)) calc(.7rem + env(safe-area-inset-bottom,0px)) max(1rem,env(safe-area-inset-left,0px));background:#0b1a33f2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--line);transform:translateY(110%);transition:transform .35s ease}
+.quick-bar.show{transform:none}
+.quick-bar a{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;border-radius:3rem;font:700 .78rem var(--mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.quick-call{background:var(--yellow);color:var(--dark)}
+.quick-wa{border:1px solid #72dc88;color:#72dc88}
+body.menu-open .quick-bar{transform:translateY(110%)}
+}
+/* Sui touch screen niente effetti "hover" che restano attivi dopo il tocco */
+@media(hover:none){
+.service-detail:hover{color:#5a5953}
+.service-detail.active{color:#737b09}
+.circle-link:hover,.nav-cta:hover,form button:hover{transform:none;box-shadow:none}
+.intro-images figure:hover img,.portfolio-track figure:hover img{transform:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
