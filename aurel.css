@@ -114,3 +114,53 @@ body.menu-open .quick-bar{transform:translateY(110%)}
 .portfolio-track figure{height:440px}
 .portfolio-track img[src^="img/"]{filter:none}
 @media(max-width:760px){.portfolio-track figure{height:420px}}
+
+/* ===== iPad e tablet ===== */
+/* Testi minimi leggibili su tablet (verticale e orizzontale) */
+@media(min-width:761px) and (max-width:1199px){
+.nav{font-size:.8rem;gap:1.6rem}
+.nav-cta{font-size:.68rem}
+.section-label,.kicker{font-size:.7rem}
+.hero-meta{font-size:.64rem}
+.hero-bottom>p{font-size:.95rem}
+.circle-link{font-size:.6rem}
+.intro-copy{font-size:.98rem}
+.intro-images figcaption,.portfolio-track figcaption{font-size:.66rem}
+.service-detail span{font-size:.66rem}
+.service-detail b{font-size:.9rem}
+.option-label,label{font-size:.66rem}
+.chip{font-size:.66rem}
+.copy-email small,.contact-action small{font-size:.66rem}
+footer{font-size:.82rem}
+}
+/* iPad in verticale: colonne singole dove lo spazio è poco */
+@media(min-width:761px) and (max-width:1023px){
+.section{padding:7rem 6vw}
+.intro-layout{grid-template-columns:1fr;gap:2.5rem;align-items:start}
+.intro-copy{max-width:60ch}
+.intro-images{margin-top:4.5rem}
+.intro-images figure{height:320px}
+.projects-heading{display:block}
+.projects-heading h2{margin:2rem 0 3rem}
+.services-grid{grid-template-columns:1.1fr .9fr;gap:4vw}
+.service-photo{height:440px}
+.contact-layout{grid-template-columns:1fr 1.1fr;gap:5vw}
+.contact-layout form{padding:2rem}
+footer{grid-template-columns:1fr 1fr;gap:1.6rem}
+footer small{grid-column:1/-1;align-self:start}
+}
+/* Schermi touch grandi (iPad): aree di tocco comode, niente zoom sui campi */
+@media(min-width:761px) and (hover:none) and (pointer:coarse){
+.nav>a:not(.nav-cta){padding:.9rem .3rem}
+.nav-cta{padding:1rem 1.3rem}
+.logo{padding:.8rem 0}
+.underlined-link{display:inline-flex;padding:.7rem 0}
+.service-detail{padding:.85rem 0}
+.chip{min-height:44px;padding:0 1.1rem}
+.contact-value{min-height:48px}
+input,textarea{font-size:16px;padding:.9rem 0}
+.consent input{width:1.3rem;height:1.3rem}
+form button{min-height:52px}
+footer a{display:inline-block;padding:.4rem 0}
+.hero-scroll{display:none}
+}
