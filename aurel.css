@@ -164,3 +164,7 @@ form button{min-height:52px}
 footer a{display:inline-block;padding:.4rem 0}
 .hero-scroll{display:none}
 }
+
+/* Contatti senza modulo: una sola colonna */
+.contact-layout{display:block;max-width:720px}
+.contact-copy>p{max-width:520px}

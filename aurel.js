@@ -14,31 +14,7 @@ document.querySelectorAll('.copy-btn').forEach(btn=>btn.addEventListener('click'
   setTimeout(()=>{msg.textContent='';btn.textContent='COPIA'},2500);
 }));
 
-const contactForm=document.getElementById('contact-form');
-const formMessage=document.getElementById('form-message');
-contactForm.addEventListener('submit',async event=>{
-  event.preventDefault();
-  const form=event.currentTarget;
-  const button=form.querySelector('button[type="submit"]');
-  // Campo trappola: le persone non lo vedono, i bot lo compilano.
-  if(form.elements._gotcha.value){form.reset();return}
-  if(form.action.includes('IL_TUO_ID')){
-    formMessage.textContent='Modulo non ancora collegato. Nel frattempo scrivici su WhatsApp o chiamaci.';
-    return;
-  }
-  button.disabled=true;
-  formMessage.textContent='Invio in corso…';
-  try{
-    const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
-    if(!response.ok)throw new Error(String(response.status));
-    form.reset();
-    formMessage.textContent='Grazie! Richiesta inviata, ti ricontatteremo al più presto.';
-  }catch{
-    formMessage.textContent='Invio non riuscito. Riprova tra poco oppure scrivici su WhatsApp.';
-  }finally{
-    button.disabled=false;
-  }
-});
+// Modulo contatti rimosso: i contatti avvengono via telefono, WhatsApp ed email.
 // Telefono: header con sfondo dopo lo scroll e barra Chiama/WhatsApp
 const header=document.querySelector('.header');
 const quickBar=document.querySelector('.quick-bar');
