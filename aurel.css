@@ -168,3 +168,6 @@ footer a{display:inline-block;padding:.4rem 0}
 /* Contatti senza modulo: una sola colonna */
 .contact-layout{display:block;max-width:720px}
 .contact-copy>p{max-width:520px}
+
+/* Icona menu (due linee) gialla come i pulsanti; resta scura a menu aperto */
+@media(max-width:760px){.menu-button i{background:var(--yellow)}}
