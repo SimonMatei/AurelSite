@@ -8,4 +8,28 @@ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entr
 
 document.querySelector('.copy-email').addEventListener('click',async event=>{const email=event.currentTarget.dataset.email;try{await navigator.clipboard.writeText(email)}catch{const field=document.createElement('textarea');field.value=email;document.body.appendChild(field);field.select();document.execCommand('copy');field.remove()}document.querySelector('.copy-message').textContent='Email copiabile negli appunti.';setTimeout(()=>document.querySelector('.copy-message').textContent='',2500)});
 
-document.getElementById('contact-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('form-message').textContent='Grazie! Il modulo è pronto per essere collegato a email, Formspree o WhatsApp.';event.currentTarget.reset()});
+const contactForm=document.getElementById('contact-form');
+const formMessage=document.getElementById('form-message');
+contactForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  const button=form.querySelector('button[type="submit"]');
+  // Campo trappola: le persone non lo vedono, i bot lo compilano.
+  if(form.elements._gotcha.value){form.reset();return}
+  if(form.action.includes('IL_TUO_ID')){
+    formMessage.textContent='Modulo non ancora collegato. Nel frattempo scrivici su WhatsApp o chiamaci.';
+    return;
+  }
+  button.disabled=true;
+  formMessage.textContent='Invio in corso…';
+  try{
+    const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(!response.ok)throw new Error(String(response.status));
+    form.reset();
+    formMessage.textContent='Grazie! Richiesta inviata, ti ricontatteremo al più presto.';
+  }catch{
+    formMessage.textContent='Invio non riuscito. Riprova tra poco oppure scrivici su WhatsApp.';
+  }finally{
+    button.disabled=false;
+  }
+});
