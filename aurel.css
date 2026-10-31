@@ -250,3 +250,13 @@ img.cx-icon{width:36px;height:36px;border-radius:0;background:none;padding:0;obj
 /* Icone nei pulsanti: telefono (originale) e logo ufficiale WhatsApp nero */
 .qb-ico{width:20px;height:20px;flex:none;display:block}
 .cx-send .cx-send-wa{display:inline-flex;align-items:center;justify-content:center;gap:.55rem}
+
+/* Pulsante "Parliamo del tuo progetto" e frecce disegnate (niente emoji su iPhone) */
+.cta-pill{display:inline-flex;align-items:center;gap:.6rem;margin-top:2rem;min-height:48px;padding:0 1.4rem;border:1px solid var(--yellow);border-radius:3rem;color:var(--cream);text-decoration:none;font-size:.9rem;font-weight:700;letter-spacing:-.01em;transition:background .2s,color .2s,transform .2s}
+.cta-pill .arr{color:var(--yellow);transition:transform .2s}
+.cta-pill:hover{background:var(--yellow);color:var(--dark);transform:translateY(-2px)}
+.cta-pill:hover .arr{color:var(--dark);transform:translateY(2px)}
+.arr{display:inline-block;vertical-align:middle;flex:none}
+.nav-cta span{display:inline-flex}
+@media(max-width:760px){.cta-pill{margin-top:1.8rem;min-height:52px;font-size:.98rem}}
+.nav-cta{display:inline-flex;align-items:center}
