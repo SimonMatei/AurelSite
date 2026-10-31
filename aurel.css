@@ -260,3 +260,18 @@ img.cx-icon{width:36px;height:36px;border-radius:0;background:none;padding:0;obj
 .nav-cta span{display:inline-flex}
 @media(max-width:760px){.cta-pill{margin-top:1.8rem;min-height:52px;font-size:.98rem}}
 .nav-cta{display:inline-flex;align-items:center}
+/* Niente riflesso azzurro al tocco su iPhone/Android */
+a,button,summary{-webkit-tap-highlight-color:transparent}
+/* Pulsante "Parliamo del tuo progetto": colori fissi; l'effetto giallo solo con il mouse */
+.cta-pill,.cta-pill:visited{color:var(--cream);background:transparent}
+.cta-pill:active{transform:scale(.97);background:#f3ec3614}
+@media(hover:none),(pointer:coarse){
+.cta-pill:hover{background:transparent;color:var(--cream);transform:none}
+.cta-pill:hover .arr{color:var(--yellow);transform:none}
+.cta-pill:active{transform:scale(.97);background:#f3ec3614}
+.cx-card:hover{border-color:var(--line);background:#ffffff08}
+.cx-copy:hover{background:transparent;color:var(--yellow)}
+.cx-send .cx-send-wa:hover,.cx-send .cx-send-mail:hover{transform:none}
+.cx-send .cx-send-wa:hover{background:#72dc88}
+.cx-send .cx-send-mail:hover{border-color:var(--line)}
+}
