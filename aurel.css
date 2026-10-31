@@ -240,3 +240,6 @@ body.menu-open .quick-bar{transform:translateY(130%)}
 .cx-send button{flex:1 1 100%;min-height:52px;font-size:.78rem}
 }
 @media(min-width:761px) and (hover:none) and (pointer:coarse){.cx-form select{font-size:16px}}
+
+.cx-icon{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#72dc881f;color:#72dc88}
+.cx-icon svg{display:block}
