@@ -179,3 +179,8 @@ footer a{display:inline-block;padding:.4rem 0}
 .menu-button.open i:last-child{transform:translateY(-5px) rotate(-45deg)}
 body.menu-open .menu-button i{box-shadow:none}
 }
+
+/* Servizi senza foto: elenco a tutta larghezza, voci non cliccabili */
+.services-grid{display:block;max-width:820px}
+.service-detail{cursor:default}
+.service-detail:hover{color:#5a5953}
