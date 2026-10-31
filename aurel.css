@@ -192,3 +192,51 @@ body.menu-open .menu-button i{box-shadow:none}
 .quick-wa{background:#72dc88;border:0;color:var(--dark)}
 body.menu-open .quick-bar{transform:translateY(130%)}
 }
+
+/* ===== Contatti ridisegnati ===== */
+.cx-layout{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start;position:relative;z-index:1}
+.cx-intro{font-size:1rem;line-height:1.7;color:#d2cfc7;max-width:440px;margin:0 0 2rem}
+.cx-list{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+.cx-card{position:relative;display:flex;align-items:center;gap:.75rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:14px;background:#ffffff08;transition:border-color .2s,background .2s}
+.cx-card:hover{border-color:#f3ec3699;background:#ffffff10}
+.cx-wa:hover{border-color:#72dc8899}
+.cx-main{flex:1;min-width:0;min-height:48px;display:flex;flex-direction:column;justify-content:center;gap:.3rem;color:var(--cream);text-decoration:none}
+.cx-main::after{content:"";position:absolute;inset:0;border-radius:14px}
+.cx-main:focus-visible{outline:none}
+.cx-card:focus-within{outline:2px solid var(--yellow);outline-offset:2px}
+.cx-label{font:500 .68rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow)}
+.cx-wa .cx-label,.cx-arrow{color:#72dc88}
+.cx-value{font-size:1.2rem;letter-spacing:-.03em;overflow-wrap:anywhere}
+.cx-arrow{font-size:1.15rem;padding:0 .3rem}
+.cx-copy{position:relative;z-index:1;flex:none;min-height:40px;padding:0 .95rem;border-radius:2rem;border:1px solid #f3ec3666;background:transparent;color:var(--yellow);font:700 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.cx-copy:hover{background:var(--yellow);color:var(--dark)}
+.cx-direct .copy-message{margin:.6rem 0 0;min-height:1.2em}
+.cx-gmail{margin:.4rem 0 0;font-size:.85rem}
+.cx-gmail a{color:#bab7b0;text-decoration:underline;text-underline-offset:3px}
+.cx-gmail a:hover{color:var(--yellow)}
+@media(hover:none),(pointer:coarse){.cx-gmail{display:none}}
+.cx-form{background:#0b1a33;border:1px solid var(--line);border-radius:14px;padding:2rem;gap:1.25rem}
+.cx-form h3{margin:0;font:700 1.55rem/1.1 var(--sans);letter-spacing:-.04em;color:var(--cream)}
+.cx-form-note{margin:-.5rem 0 .2rem;font-size:.86rem;line-height:1.55;color:#bab7b0}
+.cx-form select{display:block;width:100%;margin-top:.55rem;padding:.75rem 1.5rem .75rem 0;background:transparent;border:0;border-bottom:1px solid #f0eee856;border-radius:0;color:var(--cream);font:.95rem var(--sans);outline:0;-webkit-appearance:none;appearance:none;cursor:pointer}
+.cx-form select:focus{border-color:var(--yellow)}
+.cx-form select option{color:#0b1a33}
+.cx-select{position:relative}
+.cx-select::after{content:"▾";position:absolute;right:.2rem;bottom:.8rem;color:var(--yellow);font-size:.9rem;pointer-events:none}
+.cx-send{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.3rem}
+.cx-send button{align-self:auto;min-height:50px;padding:0 1.3rem;border-radius:3rem;font:700 .72rem var(--mono);letter-spacing:.08em;cursor:pointer;transition:transform .2s,background .2s}
+.cx-send .cx-send-wa{background:#72dc88;color:var(--dark);border:0}
+.cx-send .cx-send-wa:hover{background:#8be69d;transform:translateY(-2px)}
+.cx-send .cx-send-mail{background:transparent;color:var(--cream);border:1px solid var(--line)}
+.cx-send .cx-send-mail:hover{border-color:var(--cream);transform:translateY(-2px)}
+@media(max-width:1023px){.cx-layout{grid-template-columns:1fr;gap:2.5rem;max-width:640px}}
+@media(max-width:760px){
+.cx-intro{margin-bottom:1.5rem}
+.cx-card{padding:.9rem 1rem}
+.cx-value{font-size:1.08rem}
+.cx-copy{min-height:44px}
+.cx-form{padding:1.5rem 1.25rem}
+.cx-form select{font-size:16px;padding-top:.9rem;padding-bottom:.9rem}
+.cx-send button{flex:1 1 100%;min-height:52px;font-size:.78rem}
+}
+@media(min-width:761px) and (hover:none) and (pointer:coarse){.cx-form select{font-size:16px}}
