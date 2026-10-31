@@ -246,3 +246,7 @@ body.menu-open .quick-bar{transform:translateY(130%)}
 
 /* Logo ufficiale WhatsApp nella scheda (file del Brand Resource Center, non modificato) */
 img.cx-icon{width:36px;height:36px;border-radius:0;background:none;padding:0;object-fit:contain;margin-right:.2rem}
+
+/* Icone nei pulsanti: telefono (originale) e logo ufficiale WhatsApp nero */
+.qb-ico{width:20px;height:20px;flex:none;display:block}
+.cx-send .cx-send-wa{display:inline-flex;align-items:center;justify-content:center;gap:.55rem}
