@@ -14,14 +14,7 @@ document.querySelectorAll('.copy-btn').forEach(btn=>btn.addEventListener('click'
 }));
 
 // Modulo contatti rimosso: i contatti avvengono via telefono, WhatsApp ed email.
-// Telefono: header con sfondo dopo lo scroll e barra Chiama/WhatsApp
+// Telefono: header con sfondo dopo lo scroll
 const header=document.querySelector('.header');
-const quickBar=document.querySelector('.quick-bar');
-const hero=document.querySelector('.hero');
-const contact=document.getElementById('contatti');
-let pastHero=false,contactVisible=false;
-const updateQuickBar=()=>quickBar.classList.toggle('show',pastHero&&!contactVisible);
 const onScroll=()=>{header.classList.toggle('scrolled',window.scrollY>40)};
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-new IntersectionObserver(([e])=>{pastHero=!e.isIntersecting;updateQuickBar()},{threshold:.15}).observe(hero);
-new IntersectionObserver(([e])=>{contactVisible=e.isIntersecting;updateQuickBar()},{threshold:0}).observe(contact);

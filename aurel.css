@@ -184,3 +184,11 @@ body.menu-open .menu-button i{box-shadow:none}
 .services-grid{display:block;max-width:820px}
 .service-detail{cursor:default}
 .service-detail:hover{color:#5a5953}
+
+/* Barra Chiama/WhatsApp: sempre visibile, solo i pulsanti senza fascia di sfondo */
+@media(max-width:760px){
+.quick-bar{background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;transform:none;pointer-events:none}
+.quick-bar a{pointer-events:auto;box-shadow:0 6px 18px #0b1a3359,0 1px 3px #0b1a3340}
+.quick-wa{background:#72dc88;border:0;color:var(--dark)}
+body.menu-open .quick-bar{transform:translateY(130%)}
+}
