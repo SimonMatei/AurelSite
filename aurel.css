@@ -275,3 +275,27 @@ a,button,summary{-webkit-tap-highlight-color:transparent}
 .cx-send .cx-send-wa:hover{background:#72dc88}
 .cx-send .cx-send-mail:hover{border-color:var(--line)}
 }
+
+/* ===== Visualizzatore foto ===== */
+.portfolio-track figure{cursor:zoom-in}
+.portfolio-track figure:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.portfolio-track figure::after{content:"";position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:50%;background:#0b1a33b3 url("img/zoom.svg") center/18px no-repeat;pointer-events:none}
+.lb{position:fixed;inset:0;z-index:50;background:#070f1e;display:grid;grid-template-rows:auto 1fr auto;color:var(--cream);padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.lb[hidden]{display:none}
+body.lb-open{overflow:hidden}
+body.lb-open .quick-bar,body.lb-open .header{visibility:hidden}
+.lb-top{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
+.lb-count{margin:0;font:500 .75rem var(--mono);letter-spacing:.1em;color:#d6d3cc}
+.lb-stage{position:relative;overflow:hidden;touch-action:none;display:flex;align-items:center;justify-content:center;min-height:0;cursor:zoom-in;user-select:none;-webkit-user-select:none}
+.lb.zoomed .lb-stage{cursor:grab}
+.lb-img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;transform-origin:center center;will-change:transform;-webkit-user-drag:none;pointer-events:none}
+.lb-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid #f0eee840;background:#0b1a33cc;color:var(--cream);cursor:pointer;transition:background .2s,color .2s}
+.lb-btn:hover{background:var(--yellow);color:var(--dark)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{left:max(1rem,env(safe-area-inset-left,0px))}
+.lb-next{right:max(1rem,env(safe-area-inset-right,0px))}
+.lb.single .lb-prev,.lb.single .lb-next,.lb.zoomed .lb-prev,.lb.zoomed .lb-next{display:none}
+.lb-bottom{padding:.8rem 1rem 1.1rem;text-align:center}
+.lb-caption{margin:0 0 .3rem;font:500 .8rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.lb-hint{margin:0;font-size:.8rem;color:#bab7b0}
+@media(hover:none),(pointer:coarse){.lb-btn:hover{background:#0b1a33cc;color:var(--cream)}.lb-prev,.lb-next{top:auto;bottom:4.2rem;transform:none}}
