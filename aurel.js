@@ -44,7 +44,7 @@ if(quoteForm){quoteForm.addEventListener('submit',event=>{
 (()=>{
   const lb=document.getElementById('lightbox');if(!lb)return;
   const stage=lb.querySelector('.lb-stage'),track=lb.querySelector('.lb-track');
-  const cap=lb.querySelector('.lb-caption'),count=lb.querySelector('.lb-count'),hint=lb.querySelector('.lb-hint');
+  const cap=lb.querySelector('.lb-caption'),count=lb.querySelector('.lb-count');
   const prevBtn=lb.querySelector('.lb-prev'),nextBtn=lb.querySelector('.lb-next');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let list=[],slides=[],idx=0,img=null,scale=1,tx=0,ty=0,lastFocus=null;
@@ -101,5 +101,4 @@ if(quoteForm){quoteForm.addEventListener('submit',event=>{
     if(pts.size===0){start=null;axis=null}};
   stage.addEventListener('pointerup',end);stage.addEventListener('pointercancel',end);
   window.addEventListener('resize',()=>{if(!lb.hidden){setTrack(0,false);if(scale>1.01){clamp();apply()}}});
-  if(matchMedia('(hover:hover) and (pointer:fine)').matches)hint.textContent='Doppio clic o rotellina per lo zoom · frecce per scorrere';
 })();
