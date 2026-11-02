@@ -299,3 +299,6 @@ body.lb-open .quick-bar,body.lb-open .header{visibility:hidden}
 .lb-caption{margin:0 0 .3rem;font:500 .8rem var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .lb-hint{margin:0;font-size:.8rem;color:#bab7b0}
 @media(hover:none),(pointer:coarse){.lb-btn:hover{background:#0b1a33cc;color:var(--cream)}.lb-prev,.lb-next{top:auto;bottom:4.2rem;transform:none}}
+
+.lb-img{transition:none}
+.lb-img.lb-anim{transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .3s ease}
